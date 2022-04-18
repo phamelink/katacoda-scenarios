@@ -26,9 +26,9 @@
 		}
 	},
 	"environment": {
-		"backend": {
-			"imageid": "ubuntu:2004",
-			"uilayout": "terminal"
-		}
+		"uilayout": "editor-terminal"
+	},
+	"backend": {
+		"imageid": "ubuntu:2004"
 	}
 }
