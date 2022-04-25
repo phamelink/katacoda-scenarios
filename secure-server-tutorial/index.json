@@ -42,7 +42,7 @@
 		}
 	},
 	"environment": {
-		"uilayout": "terminal-terminal"
+		"uilayout": "terminal-iframe"
 	},
 	"backend": {
 		"imageid": "nodejs:16"
