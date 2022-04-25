@@ -42,7 +42,7 @@
 		}
 	},
 	"environment": {
-		"uilayout": "terminal-terminal-split"
+		"uilayout": "terminal-iframe-split"
 	},
 	"backend": {
 		"imageid": "nodejs:12",
