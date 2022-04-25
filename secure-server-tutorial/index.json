@@ -42,11 +42,10 @@
 		}
 	},
 	"environment": {
-		"uilayout": "terminal-iframe"
+		"uilayout": "terminal-terminal-split"
 	},
-
 	"backend": {
-		"imageid": "nodejs:16",
+		"imageid": "nodejs:12",
 		"port": 80
 	}
 }
