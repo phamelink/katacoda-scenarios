@@ -1,1 +1,1 @@
-yes Y | sudo apt update && sudo apt install nginx nodejs
+yes Y | sudo apt update && yes Y | sudo apt install nginx nodejs
