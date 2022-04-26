@@ -60,10 +60,10 @@ Once you've done this, start the server with
 npm run start
 ```
 
-Now, open a new terminal tab, and execute the following command:
+Now, open a new terminal tab, make sure you're in the same directory as before, and execute the following command:
 
 ```bash
-curl http://localhost:8000/hello-world
+curl http://localhost:8000/api/
 ```
 
 If you see the "hello world" greeting, then congrats, our API is running and working correctly!

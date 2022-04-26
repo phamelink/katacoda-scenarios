@@ -6,7 +6,7 @@ The application we will deploy is a simple Express API and a static website, all
 
 To secure our server, we will start by setting up Nginx as a reverse proxy to safely serve our content. Then, we will enable a firewall and set up secure remote access with SSH.
 
-If any of these terms aren't familiar to you, don't worry! I'll explain everything as we go step by step in this tutorial.
+If any of these terms aren't familiar to you, don't worry! Everything will be explained as we go step by step in this tutorial.
 
 ## But why is this necessary ?
 
