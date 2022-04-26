@@ -38,11 +38,12 @@
 			"text": "finish.md"
 		},
 		"assets": {
-			"client": [{ "file": "*", "target": "~/projects/" }]
+			"client": [{ "file": "*", "target": "/home/projects/" }]
 		}
 	},
 	"environment": {
-		"uilayout": "terminal-iframe-split"
+		"uilayout": "terminal-iframe-split",
+		"hideiframebuttons": false
 	},
 	"backend": {
 		"imageid": "nodejs:12",
