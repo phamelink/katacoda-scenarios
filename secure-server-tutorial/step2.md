@@ -27,7 +27,7 @@ Nginx also offers many other features such as blacklisting IP addresses or limit
 
 Okay so now that you understand what a reverse proxy is, let's use one!
 
-Before we begin, I need to mention Nginx is already installed here. If you want to try doing this on your own linux server, all you need to do is run these 2 commands:
+Before we begin, it is important to mention Nginx is already installed here. If you want to try doing this on your own linux server, all you need to do is run these 2 commands:
 
 ```bash
 sudo apt update && sudo apt install nginx
@@ -136,3 +136,11 @@ cd /home/projects/express-api && npm run start
 ```
 
 Now, in our HTTP Client 1, add the _/api/_ route in the url. You should see the response from the express API server. Congrats! You just successfully configured a reverse proxy, bringing us one step closer to deploying our server securely.
+
+## Note on intergrating continous deployment
+
+In the introduction of this tutorial we breifly mentioned continous deployment and how we can integrate it on our server. Well, as you can imagine, with Nginx this became a whole lot easier.
+
+Imagine you and your development team are working tirelessly on new features for your static website, or, better yet, you guys a building whole web app with React. Well, with the right Nginx configurations, all you need to do is make sure you have a server block that serves the right static files, and if the content of any of those files changes in any way, Nginx couldn't care less! It will simply start serving these new files next time someone requests them. With a React application for example, all you need to do is make sure that Nginx serves files in the _build_ folder and make an automation that whenever there's a new update to your React code, you build that code and Nginx will serve that content. Easy right ?
+
+Anyway, let's start with another important step in deploying a secure server, which is setting up a firewall. See you there!

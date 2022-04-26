@@ -46,7 +46,7 @@
 		"hideiframebuttons": false
 	},
 	"backend": {
-		"imageid": "nodejs:12",
+		"imageid": "ubuntu:2004",
 		"port": 80
 	}
 }
