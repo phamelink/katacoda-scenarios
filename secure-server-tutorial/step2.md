@@ -141,7 +141,7 @@ Now restart Nginx and also don't forget to run our API server if it's not alread
 ```sh
 cd /home/projects/express-api 
 npm run start
-```{{execute}}
+```{{execute T1}}
 
 Now, in our HTTP Client 1, add the _/api/_ route in the url. You should see the response from the express API server. Congrats! You just successfully configured a reverse proxy, bringing us one step closer to deploying our server securely.
 
