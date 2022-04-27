@@ -8,9 +8,7 @@ Before we begin, let us look briefly at the code we will be using to create our 
 
 First, change directory to where the API is, and list the files it contains:
 
-```bash
-cd /home/projects/express-api && ls{{execute}}
-```
+`cd /home/projects/express-api && ls`{{execute}}
 
 You can see here we have three files: `index.js`, `package.json` and `package-lock.json`
 `package.json` and `package-lock.json` are the files that contain all the information regarding Node js dependencies and npm scripts. If you're unfamiliar with Node js, just think of npm scripts as command shortcuts to run our code.

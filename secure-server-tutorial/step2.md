@@ -78,15 +78,15 @@ cd /etc/nginx/sites-available && touch custom_rp.conf
 
 Now, add the following text inside that file:
 
-````nginx
-server {
-    # Set default website folder
-    root /home/projects/static-website;
+`
+server { # Set default website folder
+root /home/projects/static-website;
 
     # Listen on port 80
     listen 80;
+
 }
-```{{copy}}
+`{{copy}}
 
 Here we create a server block, that listens for requests made to port 80, and by default serves our `index.html` file in our _static-website_ folder.
 
@@ -94,7 +94,7 @@ Okay, now that we have the configuration for a virtual host, we need to enable i
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/custom_rp.conf /etc/nginx/sites-enabled/custom_rp.conf
-````
+```
 
 To see all your symbolic links and to make sure this command was successfull, you can run `ls -l`.
 
