@@ -68,17 +68,22 @@ Remember how there were two directories, _sites-available_ and _sites-enables_ ?
 
 Now let's create a new virtual host, by creating a file in _sites-enabled_:
 
-`cd /etc/nginx/sites-available && touch custom_rp.conf`{{execute}}
+```sh
+cd /etc/nginx/sites-available
+touch custom_rp.conf
+```{{execute}}
 
 Now, add the following text inside that file:
 
-`server { # Set default website folder
+```nginx
+server { # Set default website folder
 root /home/projects/static-website;
 
     # Listen on port 80
     listen 80;
 
-}`{{copy}}
+}
+```{{copy}}
 
 Here we create a server block, that listens for requests made to port 80, and by default serves our `index.html` file in our _static-website_ folder.
 
@@ -103,7 +108,7 @@ By convention, API URIs are served on the on a `/api/` route, and any other rout
 You can use the nano editor to do this: `nano`{{execute}}
 Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd> `^X`{{execute ctrl-seq}}.
 
-````nginx
+```nginx
 server { # Set default website folder
 root /home/projects/static-website;
 
@@ -123,7 +128,10 @@ Now restart Nginx and also don't forget to run our API server if it's not alread
 
 `service nginx restart`{{execute}}
 
-`cd /home/projects/express-api && npm run start`{{execute}}
+```sh
+cd /home/projects/express-api 
+npm run start
+```{{execute}}
 
 Now, in our HTTP Client 1, add the _/api/_ route in the url. You should see the response from the express API server. Congrats! You just successfully configured a reverse proxy, bringing us one step closer to deploying our server securely.
 
@@ -134,4 +142,4 @@ In the introduction of this tutorial we breifly mentioned continous deployment a
 Imagine you and your development team are working tirelessly on new features for your static website, or, better yet, you guys a building whole web app with React. Well, with the right Nginx configurations, all you need to do is make sure you have a server block that serves the right static files, and if the content of any of those files changes in any way, Nginx couldn't care less! It will simply start serving these new files next time someone requests them. With a React application for example, all you need to do is make sure that Nginx serves files in the _build_ folder and make an automation that whenever there's a new update to your React code, you build that code and Nginx will serve that content. Easy right ?
 
 Anyway, let's start with another important step in deploying a secure server, which is setting up a firewall. See you there!
-````
+
