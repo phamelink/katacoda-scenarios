@@ -73,11 +73,13 @@ cd /etc/nginx/sites-available
 touch custom_rp.conf
 ```{{execute}}
 
-Now, add the following text inside that file:
+Now, add the following text inside that file. You can use the nano editor to do this: `nano custom_rp.conf`{{execute}}
+Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd> `^X`{{execute ctrl-seq}}.
 
 ```nginx
-server { # Set default website folder
-root /home/projects/static-website;
+server { 
+    # Set default website folder
+    root /home/projects/static-website;
 
     # Listen on port 80
     listen 80;
@@ -105,8 +107,16 @@ This is cool, but we still have an API server that we want to use. Let's add som
 
 By convention, API URIs are served on the on a `/api/` route, and any other route will serve static files. To do this, add the following lines in our _custom_rp.conf_ file so it looks like this:
 
-You can use the nano editor to do this: `nano`{{execute}}
-Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd> `^X`{{execute ctrl-seq}}.
+Edit with `nano custom_rp.conf`{{execute}} and quit with `^X`{{execute ctrl-seq}}
+
+
+```nginx
+    # Any matches to /api/* will proxy the request
+    # to our running API server
+    location /api/ {
+        proxy_pass http://localhost:8000;
+    }
+```{{copy}}
 
 ```nginx
 server { # Set default website folder
@@ -122,7 +132,7 @@ root /home/projects/static-website;
     }
 
 }
-```{{copy}}
+```
 
 Now restart Nginx and also don't forget to run our API server if it's not already running:
 

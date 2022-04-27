@@ -65,7 +65,7 @@ To stop the server, just press <kbd>Ctrl</kbd>+<kbd>C</kbd> `^C`{{execute ctrl-s
 Now, let's look at our static website. Go to its directory using
 
 ```bash
-cd ../static-website
+cd /home/projects/static-website
 
 cat index.html
 ```{{execute}}
