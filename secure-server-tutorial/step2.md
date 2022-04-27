@@ -74,7 +74,7 @@ touch custom_rp.conf
 ```{{execute}}
 
 Now, add the following text inside that file. You can use the nano editor to do this: `nano custom_rp.conf`{{execute}}
-Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd> `^X`{{execute ctrl-seq}}.
+Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd> `^X`{{execute }}.
 
 ```nginx
 server { 
@@ -107,7 +107,7 @@ This is cool, but we still have an API server that we want to use. Let's add som
 
 By convention, API URIs are served on the on a `/api/` route, and any other route will serve static files. To do this, add the following lines in our _custom_rp.conf_ file so it looks like this:
 
-Edit with `nano custom_rp.conf`{{execute}} and quit with `^X`{{execute ctrl-seq T2}}
+Edit with `nano custom_rp.conf`{{execute}} and quit with `^X`{{execute T2}}
 
 
 ```nginx
