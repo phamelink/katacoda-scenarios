@@ -107,7 +107,7 @@ This is cool, but we still have an API server that we want to use. Let's add som
 
 By convention, API URIs are served on the on a `/api/` route, and any other route will serve static files. To do this, add the following lines in our _custom_rp.conf_ file so it looks like this:
 
-Edit with `nano custom_rp.conf`{{execute}} and quit with `^X`{{execute ctrl-seq}}
+Edit with `nano custom_rp.conf`{{execute}} and quit with `^X`{{execute ctrl-seq T2}}
 
 
 ```nginx
