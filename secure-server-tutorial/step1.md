@@ -58,7 +58,7 @@ Now, open a new terminal tab, make sure you're in the same directory as before, 
 
 If you see the "hello world" greeting, then congrats, our API is running and working correctly!
 
-To stop the server, just press <kbd>Ctrl</kbd>+<kbd>C</kbd> `^C`{{execute ctrl-seq}} and you will be back on our familiar terminal.
+To stop the server, just press <kbd>Ctrl</kbd>+<kbd>C</kbd> `^C`{{execute ctrl-seq T1}} and you will be back on our familiar terminal.
 
 ## Static website
 
@@ -68,7 +68,7 @@ Now, let's look at our static website. Go to its directory using
 cd /home/projects/static-website
 
 cat index.html
-```{{execute}}
+```{{execute interrupt T1}}
 
 As you can see, there's only one file, `index.html`. This is the file we are going to be serving when a browser types the IP address or domain of our server. Simple as that! Of course you can always make a more complicated website, using React or other frameworks, but that's outside the scope of this tutorial.
 
