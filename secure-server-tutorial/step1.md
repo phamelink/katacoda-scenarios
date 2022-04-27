@@ -54,17 +54,21 @@ Once you've done this, start the server with
 
 Now, open a new terminal tab, make sure you're in the same directory as before, and execute the following command:
 
-`curl http://localhost:8000/api/`{{execute}}
+`curl http://localhost:8000/api/`{{execute T2}}
 
 If you see the "hello world" greeting, then congrats, our API is running and working correctly!
 
-To stop the server, just press `ctrl + C` and you will be back on our familiar terminal.
+To stop the server, just press <kbd>Ctrl</kbd>+<kbd>C</kbd> `^C`{{execute ctrl-seq}} and you will be back on our familiar terminal.
 
 ## Static website
 
 Now, let's look at our static website. Go to its directory using
 
-`cd ../static-website`{{execute}}
+```bash
+cd ../static-website
+
+cat index.html
+```{{execute}}
 
 As you can see, there's only one file, `index.html`. This is the file we are going to be serving when a browser types the IP address or domain of our server. Simple as that! Of course you can always make a more complicated website, using React or other frameworks, but that's outside the scope of this tutorial.
 

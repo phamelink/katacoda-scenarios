@@ -100,7 +100,11 @@ This is cool, but we still have an API server that we want to use. Let's add som
 
 By convention, API URIs are served on the on a `/api/` route, and any other route will serve static files. To do this, add the following lines in our _custom_rp.conf_ file so it looks like this:
 
-`server { # Set default website folder
+You can use the nano editor to do this: `nano`{{execute}}
+Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd> `^X`{{execute ctrl-seq}}.
+
+````nginx
+server { # Set default website folder
 root /home/projects/static-website;
 
     # Listen on port 80
@@ -112,7 +116,8 @@ root /home/projects/static-website;
         proxy_pass http://localhost:8000;
     }
 
-}`{{copy}}
+}
+```{{copy}}
 
 Now restart Nginx and also don't forget to run our API server if it's not already running:
 
@@ -129,3 +134,4 @@ In the introduction of this tutorial we breifly mentioned continous deployment a
 Imagine you and your development team are working tirelessly on new features for your static website, or, better yet, you guys a building whole web app with React. Well, with the right Nginx configurations, all you need to do is make sure you have a server block that serves the right static files, and if the content of any of those files changes in any way, Nginx couldn't care less! It will simply start serving these new files next time someone requests them. With a React application for example, all you need to do is make sure that Nginx serves files in the _build_ folder and make an automation that whenever there's a new update to your React code, you build that code and Nginx will serve that content. Easy right ?
 
 Anyway, let's start with another important step in deploying a secure server, which is setting up a firewall. See you there!
+````
