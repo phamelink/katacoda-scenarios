@@ -9,7 +9,7 @@ Before we begin, let us look briefly at the code we will be using to create our 
 First, change directory to where the API is, and list the files it contains:
 
 ```bash
-cd /home/projects/express-api && ls
+cd /home/projects/express-api && ls{{execute}}
 ```
 
 You can see here we have three files: `index.js`, `package.json` and `package-lock.json`
