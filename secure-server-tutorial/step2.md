@@ -46,9 +46,7 @@ There are two other directories that are import to mention
 
 Now let's see what happens when we start the Nginx webserver. To do this, run the following command in your terminal:
 
-```bash
-service nginx start
-```
+`service nginx start`{{execute}}
 
 Now, in press on the `+` button and select _View HTTP port 80 on Host 1_. This will open a new tab in your browser that connects to your server from an external network. You should see a default _Welcome to nginx!_ page.
 
@@ -66,43 +64,33 @@ Now, let's see how we can customize our Nginx configurations to match our needs.
 
 Remember how there were two directories, _sites-available_ and _sites-enables_ ? Well we know that the former contains the configurations for all our virtual hosts, and the latter let's us enable or disable them as we wish. Let's start by disabling the _default_ vhost, by running
 
-```bash
-sudo unlink /etc/nginx/sites-enabled/default
-```
+`sudo unlink /etc/nginx/sites-enabled/default`{{execute}}
 
 Now let's create a new virtual host, by creating a file in _sites-enabled_:
 
-```bash
-cd /etc/nginx/sites-available && touch custom_rp.conf
-```
+`cd /etc/nginx/sites-available && touch custom_rp.conf`{{execute}}
 
 Now, add the following text inside that file:
 
-`
-server { # Set default website folder
+`server { # Set default website folder
 root /home/projects/static-website;
 
     # Listen on port 80
     listen 80;
 
-}
-`{{copy}}
+}`{{copy}}
 
 Here we create a server block, that listens for requests made to port 80, and by default serves our `index.html` file in our _static-website_ folder.
 
 Okay, now that we have the configuration for a virtual host, we need to enable it. This is done by adding a symbolic link between the file in _sites-available_ and _sites-enabled_:
 
-```bash
-sudo ln -s /etc/nginx/sites-available/custom_rp.conf /etc/nginx/sites-enabled/custom_rp.conf
-```
+`sudo ln -s /etc/nginx/sites-available/custom_rp.conf /etc/nginx/sites-enabled/custom_rp.conf`{{execute}}
 
-To see all your symbolic links and to make sure this command was successfull, you can run `ls -l`.
+To see all your symbolic links in a directory and to make sure this command was successfull, you can run `ls /etc/nginx/sites-enabled/ -l`{{execute}}.
 
 Awesome, now you need to restart Nginx so it accepts our modifications. To do this, run
 
-```bash
-service nginx restart
-```
+`service nginx restart`{{execute}}
 
 Now, open up client 1 just like before and you'll see now that we're serving our own static website!
 
@@ -112,10 +100,8 @@ This is cool, but we still have an API server that we want to use. Let's add som
 
 By convention, API URIs are served on the on a `/api/` route, and any other route will serve static files. To do this, add the following lines in our _custom_rp.conf_ file so it looks like this:
 
-```nginx
-server {
-    # Set default website folder
-    root /home/projects/static-website;
+`server { # Set default website folder
+root /home/projects/static-website;
 
     # Listen on port 80
     listen 80;
@@ -125,15 +111,14 @@ server {
     location /api/ {
         proxy_pass http://localhost:8000;
     }
-}
-```
+
+}`{{copy}}
 
 Now restart Nginx and also don't forget to run our API server if it's not already running:
 
-```bash
-service nginx restart
-cd /home/projects/express-api && npm run start
-```
+`service nginx restart`{{execute}}
+
+`cd /home/projects/express-api && npm run start`{{execute}}
 
 Now, in our HTTP Client 1, add the _/api/_ route in the url. You should see the response from the express API server. Congrats! You just successfully configured a reverse proxy, bringing us one step closer to deploying our server securely.
 

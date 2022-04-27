@@ -15,9 +15,7 @@ You can see here we have three files: `index.js`, `package.json` and `package-lo
 
 The file `index.js` contains the actual code of our API. Take a look by running
 
-```bash
-cat index.js
-```
+`cat index.js`{{execute}}
 
 ### Let's briefly explain what the code does
 
@@ -45,24 +43,18 @@ Then we start our API to listen for requests on port 8000.
 
 Okay that's great, but we want to see the code in action. To do this we first need to install dependencies with
 
-```bash
-npm install
-```
+`npm install`{{execute}}
 
 This command simply looks for the `package.json` file for a list of dependencies and install them.
 This might take a minute so be patient!
 
 Once you've done this, start the server with
 
-```bash
-npm run start
-```
+`npm run start`{{execute}}
 
 Now, open a new terminal tab, make sure you're in the same directory as before, and execute the following command:
 
-```bash
-curl http://localhost:8000/api/
-```
+`curl http://localhost:8000/api/`{{execute}}
 
 If you see the "hello world" greeting, then congrats, our API is running and working correctly!
 
@@ -72,9 +64,7 @@ To stop the server, just press `ctrl + C` and you will be back on our familiar t
 
 Now, let's look at our static website. Go to its directory using
 
-```bash
-cd ../static-website
-```
+`cd ../static-website`{{execute}}
 
 As you can see, there's only one file, `index.html`. This is the file we are going to be serving when a browser types the IP address or domain of our server. Simple as that! Of course you can always make a more complicated website, using React or other frameworks, but that's outside the scope of this tutorial.
 
