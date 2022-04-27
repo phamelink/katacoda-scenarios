@@ -74,7 +74,7 @@ touch custom_rp.conf
 ```{{execute}}
 
 Now, add the following text inside that file. You can use the nano editor to do this: `nano custom_rp.conf`{{execute}}
-Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd> `^X`{{execute }}.
+Copy the code and when you're done, you can close it with <kbd>Ctrl</kbd>+<kbd>X</kbd>.
 
 ```nginx
 server { 
@@ -99,16 +99,13 @@ Awesome, now you need to restart Nginx so it accepts our modifications. To do th
 
 `service nginx restart`{{execute}}
 
-Now, open up client 1 just like before and you'll see now that we're serving our own static website!
+Now, open up HTTP port 80 on Host 1 just like before and you'll see now that we're serving our own static website!
 
 This is cool, but we still have an API server that we want to use. Let's add some configurations to our reverse-proxy!
 
 ### Adding our API server in the virtual host
 
 By convention, API URIs are served on the on a `/api/` route, and any other route will serve static files. To do this, add the following lines in our _custom_rp.conf_ file so it looks like this:
-
-Edit with `nano custom_rp.conf`{{execute}} and quit with `^X`{{execute T2}}
-
 
 ```nginx
     # Any matches to /api/* will proxy the request
@@ -118,9 +115,12 @@ Edit with `nano custom_rp.conf`{{execute}} and quit with `^X`{{execute T2}}
     }
 ```{{copy}}
 
+Edit with `nano custom_rp.conf`{{execute}} and quit with <kbd>Ctrl</kbd>+<kbd>X</kbd>.
+
 ```nginx
-server { # Set default website folder
-root /home/projects/static-website;
+server { 
+    # Set default website folder
+    root /home/projects/static-website;
 
     # Listen on port 80
     listen 80;
