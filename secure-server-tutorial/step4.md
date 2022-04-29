@@ -40,7 +40,7 @@ Now, we need to create a user, without root privileges, which we will use for ou
 
 The options here are just to add a home directory for this new user.
 
-Awesome, now if you switch user with `su linus`{{execute T1}} and run `cd /root`{{execute T1}}, you see you're not allowed access to this folder. This exactly what we want for a user logging on to our server through SSH. To double check, run `whoami`{{execute T1}} and you'll see that your username is _linus_. Now, if you try `su root`{{execute T1}}, you're prompted for a password that we don't even know! You can press `^C`{{execute ctrl-seq T1}} to interrupt this.
+Awesome, now if you switch user with `su linus`{{execute T1}} and run `cd /root`{{execute T1}}, you see you're not allowed access to this folder. This exactly what we want for a user logging on to our server through SSH. To double check, run `whoami`{{execute T1}} and you'll see that your username is _linus_. 
 
 ## Setting up SSH keys
 

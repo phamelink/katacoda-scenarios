@@ -6,7 +6,7 @@ Let's explain this notion of ports and how they can make our server vulnerable. 
 
 This is where the firewall comes in. A firewall is simply software that let's you decide what requests you allow to come through, and which ones you reject, or even ignore. A firewall usually also has features where you can blacklist IP addresses on a certain port. You can also whitelist Ip addresses, which can be useful for SSH for example if you only want to allow remote access to certain computers.
 
-You can run `sudo lsof -i -P -n | grep LISTEN`{{execute}} to see which ports are open. You see them in the second to last column. For example, you can see here that nginx is listening for TCP connection on port 80, which is how we've been able to see our website in the previous step.
+You can run `sudo lsof -i -P -n | grep LISTEN`{{execute interrupt T1}} to see which ports are open. You see them in the second to last column. For example, you can see here that nginx is listening for TCP connection on port 80, which is how we've been able to see our website in the previous step.
 
 Now, if your API server is still running, you'll see a line in the output that looks something like this:
 
