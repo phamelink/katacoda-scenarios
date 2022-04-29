@@ -32,8 +32,6 @@ You can make these changes directly using these commands:
 `sed --in-place 's/^#PermitRootLogin.*/PermitRootLogin no/g' /etc/ssh/sshd_config`{{execute T1}}
 `sed --in-place 's/^PasswordAuthentication.*/PermitRootLogin no/g' /etc/ssh/sshd_config`{{execute T1}}
 
-Run `systemctl restart ssh`{{execute T1}} to make sure SSH applies these new configurations.
-
 ## Creating a non-root user
 
 Now, we need to create a user, without root privileges, which we will use for our login. To do this, run
