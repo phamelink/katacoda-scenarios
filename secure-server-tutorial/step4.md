@@ -32,6 +32,8 @@ You can make these changes directly using these commands:
 `sed --in-place 's/^#PermitRootLogin.*/PermitRootLogin no/g' /etc/ssh/sshd_config`{{execute T1}}
 `sed --in-place 's/^PasswordAuthentication.*/PermitRootLogin no/g' /etc/ssh/sshd_config`{{execute T1}}
 
+Run `systemctl restart ssh`{{execute T1}} to make sure SSH applies these new configurations.
+
 ## Creating a non-root user
 
 Now, we need to create a user, without root privileges, which we will use for our login. To do this, run
@@ -58,6 +60,12 @@ Awesome, now let's try and log in with SSH as linus. To do this, you need to kno
 
 `ssh linus@localhost`{{execute T2}}
 
+When prompted with 
+
+`The authenticity of host 'localhost (127.0.0.1)' can't be established. ECDSA key fingerprint is SHA256:... Are you sure you want to continue connecting (yes/no/[fingerprint])?`
+
+reply *yes*. This is simply SSH taking precautions, but since we know who we are trying to connect to we have nothing to worry about.
+
 Wait, it says _Permission denied (publickey)_. Well, that's because we didn't officially authorize torvald to gain access as linus through SSH. Let's do that now!
 
 ## Authorize SSH keys
@@ -83,4 +91,5 @@ Great, now go back to the terminal tab where torvald is and try to SSH as linus 
 
 It worked! Just to make sure, run `whoami`{{execute T2}} and you'll see that we were successful.
 
+We've now made sure that our remote access will be a little more secure, and in the process we learned how to generate and authorize SSH key pairs! 
 
