@@ -1,6 +1,6 @@
 Glad you made it! By now, we've set up a reverse proxy with Nginx and made sure that whatever local server we have running or whatever files we are serving, a client has to go through our reverse proxy to get their request fulfilled. That means a malicious attacker will not be able to trick us into accessing unauthorized content, and will have more difficulty finding and exploiting our API server. However, this does not mean we are out of the woods of a potential attack or getting attacked by DoS (Denial of Service). Sure, Nginx can help us prevent DoS attacks on our HTTP port (80) by blacklisting IP addresses or limiting the frequency of requests per client. But there's always a chance they might try and do this through another port.
 
-Let's explain this notion of ports and how they can make our server vulnerable. Ports are like doors on the network to our server. Entities on other networks can gain access to certain services on your server either with TCP or UDP. When a computer opens a port, it means it's listening for requests. That's actually what we've been doing whit Nginx. It listens on port 80, which is the standard HTTP port. Another well know port is 20 for SSH, a service that enables remote access. Having open ports in often necessary, however it leaves a server vulnerable to attacks. This can be for example Denial of Service, where an attacker will send many requests at the same time on a specific port, consuming all your server's ressources, meaning it will be unusable for actual honest users.
+Let's explain this notion of ports and how they can make our server vulnerable. Ports are like doors on the network to our server. Entities on other networks can gain access to certain services on your server either with TCP or UDP. When a computer opens a port, it means it's listening for requests. That's actually what we've been doing with Nginx. It listens on port 80, which is the standard HTTP port. Another well know port is 22 for SSH, a service that enables remote access. Having open ports in often necessary, however it leaves a server vulnerable to attacks. This can be for example a Denial of Service attack, where an attacker will send many requests at the same time on a specific port, consuming all your server's ressources, meaning it will be unusable for actual honest users.
 
 ## How can you stop this from happening ?
 
@@ -8,7 +8,7 @@ This is where the firewall comes in. A firewall is simply software that let's yo
 
 You can run `sudo lsof -i -P -n | grep LISTEN`{{execute}} to see which ports are open. You see them in the second to last column. For example, you can see here that nginx is listening for TCP connection on port 80, which is how we've been able to see our website in the previous step.
 
-Now, if your API server is still running, you'll see this line in the output:
+Now, if your API server is still running, you'll see a line in the output that looks something like this:
 
 `node 2445 root 19u IPv6 35748 0t0 TCP *:8000 (LISTEN)`
 
