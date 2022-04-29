@@ -8,7 +8,7 @@ This is where the firewall comes in. A firewall is simply software that let's yo
 
 You can run `sudo lsof -i -P -n | grep LISTEN`{{execute interrupt T1}} to see which ports are open. You see them in the second to last column. For example, you can see here that nginx is listening for TCP connection on port 80, which is how we've been able to see our website in the previous step.
 
-Now, if your API server is still running, you'll see a line in the output that looks something like this:
+Now, if your API server were still running, you would see a line in the output that looks something like this:
 
 `node 2445 root 19u IPv6 35748 0t0 TCP *:8000 (LISTEN)`
 
