@@ -62,12 +62,10 @@ Wait, it says _Permission denied (publickey)_. Well, that's because we didn't of
 
 ## Authorize SSH keys
 
-To allow users to log in through SSH with key authentication, the first thing we need to do is let SSH know who is allowed access. This is done by creating a directory in your user's home directory named _.ssh_ and add a file called _authorized_keys_.
+To allow users to log in through SSH with key authentication, the first thing we need to do is let SSH know who is allowed access. This is done by creating a directory in your user's home directory named _.ssh_ and add a file called _authorized\_keys_.
 To do this, go into another tab as linus and run
 
 ```sh
-su linus
-
 mkdir /home/linus/.ssh
 
 cd /home/linus/.ssh
