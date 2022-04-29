@@ -48,7 +48,7 @@ Now let's see what happens when we start the Nginx webserver. To do this, run th
 
 `service nginx start`{{execute}}
 
-Now, in press on the `+` button and select _View HTTP port 80 on Host 1_. This will open a new tab in your browser that connects to your server from an external network. You should see a default _Welcome to nginx!_ page.
+Now, press on the `+` button and select _View HTTP port 80 on Host 1_. This will open a new tab in your browser that connects to your server from an external network. You should see a default _Welcome to nginx!_ page.
 
 Congrats! You just successfully ran your first reverse proxy!
 
