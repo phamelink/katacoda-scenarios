@@ -75,7 +75,7 @@ touch authorized_keys
 
 Then you need to copy torvald's public key into *authorized_keys*. You can either manually copy and paste torvald's public key, or just run this command into another tab as root:
 
-`cat /home/torvald/.ssh/id_rsa.pub >> /home/linus/.ssh`{{execute T3}}
+`cat /home/torvald/.ssh/id_rsa.pub >> /home/linus/.ssh/authorized_keys`{{execute T3}}
 
 Great, now go back to the terminal tab where torvald is and try to SSH as linus again:
 
