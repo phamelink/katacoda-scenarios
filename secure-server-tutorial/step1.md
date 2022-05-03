@@ -6,11 +6,11 @@ Before we begin, let us look briefly at the code we will be using to create our 
 
 ## Express API
 
-First, change directory to where the API is, and list the files it contains:
+First, change the directory to where the API is, and list the files it contains:
 
 `cd /home/projects/express-api && ls`{{execute}}
 
-You can see here we have three files: `index.js`, `package.json` and `package-lock.json`
+You can see here we have three files: `index.js`, `package.json`, and `package-lock.json`
 `package.json` and `package-lock.json` are the files that contain all the information regarding Node js dependencies and npm scripts. If you're unfamiliar with Node js, just think of npm scripts as command shortcuts to run our code.
 
 The file `index.js` contains the actual code of our API. Take a look by running
@@ -27,25 +27,25 @@ const app = express()
 const port = 8000
 
 app.get("/hello-world", (req, res) => {
-	res.send("Hello World! From your API :)")
+    res.send("Hello World! From your API :)")
 })
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`)
 })
 ```
 
-Here, we first import the express library, initialize our API in the `app` variable, and then define our first route that listens for a HTTP `GET` request on relative URI `/hello-world` and replies with a welcoming message.
+Here, we first import the express library, initialize our API in the `app` variable, and then define our first route that listens for an HTTP `GET` request on relative URI `/hello-world` and replies with a welcoming message.
 
 Then we start our API to listen for requests on port 8000.
 
 ### Install dependencies and run our code!
 
-Okay that's great, but we want to see the code in action. To do this we first need to install dependencies with
+Okay, that's great, but we want to see the code in action. To do this we first need to install dependencies with
 
 `npm install`{{execute}}
 
-This command simply looks for the `package.json` file for a list of dependencies and install them.
+This command simply looks for the `package.json` file for a list of dependencies and installs them.
 This might take a minute so be patient!
 
 Once you've done this, start the server with
@@ -70,7 +70,7 @@ cd /home/projects/static-website
 cat index.html
 ```{{execute interrupt T1}}
 
-As you can see, there's only one file, `index.html`. This is the file we are going to be serving when a browser types the IP address or domain of our server. Simple as that! Of course you can always make a more complicated website, using React or other frameworks, but that's outside the scope of this tutorial.
+As you can see, there's only one file, `index.html`. This is the file we are going to be serving when a browser types the IP address or domain of our server. Simple as that! Of course, you can always make a more complicated website, using React or other frameworks, but that's outside the scope of this tutorial.
 
 ## Next step
 
