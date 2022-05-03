@@ -2,23 +2,23 @@
 	"title": "Secure a basic web server to deploy an API and website",
 	"description": "Given an API and React web app, you will learn to securely deploy your application on a linux server",
 	"difficulty": "Beginner",
-	"time": "90 minutes",
+	"time": "20 minutes",
 	"details": {
 		"steps": [
 			{
-				"title": "Step 1",
+				"title": "Deploy webserver",
 				"text": "step1.md"
 			},
 			{
-				"title": "Step 2",
+				"title": "Nginx reverse-proxy",
 				"text": "step2.md"
 			},
 			{
-				"title": "Step 3",
+				"title": "Firewall",
 				"text": "step3.md"
 			},
 			{
-				"title": "Step 4",
+				"title": "Remote access with SSH",
 				"text": "step4.md"
 			}
 		],

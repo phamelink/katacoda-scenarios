@@ -75,3 +75,9 @@ As you can see, there's only one file, `index.html`. This is the file we are goi
 ## Next step
 
 Okay, now that we installed the dependencies for our API, got it running, and saw where our static website is, let's see how we can actually serve our application to the outside world. We will do this in the next step with an awesome tool called Nginx. See you there!
+
+## Troubleshooting
+
+If you get an error when running `npm run start`, make sure you ran `npm install` just before.
+
+When you run `curl http://localhost:8000/api/` from the tutorial, it should open up a new terminal and execute. If this didn't work the first time, run it again!

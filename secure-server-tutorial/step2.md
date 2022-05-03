@@ -21,7 +21,7 @@ In Nginx, the service we use, whether it is a running API server or a static web
 
 Since our application server is only accessible through our reverse proxy and the internal network, malicious entities cannot access the servers directly to exploit vulnerabilities.
 
-Nginx also offers many other features such as blacklisting IP addresses or limiting the number of connections from each client which help reduce the risk of distributed denial-of-service attacks (DDoS).
+Nginx also offers many other features such as denylisting IP addresses or limiting the number of connections from each client which help reduce the risk of distributed denial-of-service attacks (DDoS).
 
 ### Let's use it!
 
@@ -152,3 +152,7 @@ In the introduction of this tutorial, we briefly mentioned continuous deployment
 Imagine you and your development team are working tirelessly on new features for your static website, or, better yet, you guys are building a whole web app with React. Well, with the right Nginx configurations, all you need to do is make sure you have a server block that serves the right static files, and if the content of any of those files changes in any way, Nginx couldn't care less! It will simply start serving these new files next time someone requests them. With a React application, for example, all you need to do is make sure that Nginx serves files in the _build_ folder and make an automation that whenever there's a new update to your React code, you build that code, and Nginx will serve that content. Easy right?
 
 Anyway, let's start with another important step in deploying a secure server, which is setting up a firewall. See you there!
+
+## Troubleshooting
+
+If you can't get access to the `/api/` route on a new tab, make sure the server is running with `cd /home/projects/express-api && npm run start`. You can check that this is working by running  `curl http://localhost:8000/api/` from another terminal tab.
