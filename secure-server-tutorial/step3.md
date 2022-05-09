@@ -6,7 +6,11 @@ Let's explain this notion of ports and how they can make our server vulnerable. 
 
 This is where the firewall comes in. A firewall is simply software that lets you decide what requests you allow to come through, and which ones you reject, or even ignore. A firewall usually also has features where you can denylist IP addresses on a certain port. You can also allowlist Ip addresses, which can be useful for SSH for example if you only want to allow remote access to certain computers.
 
-You can run `sudo lsof -i -P -n | grep LISTEN`{{execute interrupt T1}} to see which ports are open. You see them in the second to last column. For example, you can see here that Nginx is listening for TCP connection on port 80, which is how we've been able to see our website in the previous step.
+For our example, make sure the API server form step 1 is running: 
+
+`cd /home/projects/express-api && npm run start`{{execute interrupt T1}}
+
+You can run `sudo lsof -i -P -n | grep LISTEN`{{execute T2}} to see which ports are open. You see them in the second to last column. For example, you can see here that Nginx is listening for TCP connection on port 80, which is how we've been able to see our website in the previous step.
 
 Now, if your API server were still running, you would see a line in the output that looks something like this:
 
@@ -24,24 +28,28 @@ We mentioned in the introduction that we want to restrict access to our server f
 
 Leaving anything else open would be taking unnecessary risk and leaving our server more vulnerable. So, we need to set up a firewall to block all incoming requests, except those made on port 22 (for SSH) and port 80 (for HTTP).
 
-To do this, we will use a popular firewall software called _ufw_, which stands for _uncomplicated firewall_.
+To do this, we will use a popular firewall software called _ufw_, which stands for _uncomplicated firewall_. It is installed on most linux machines by default, but in case you want to test it out on your own machine that doesn't have it yet, just run
+
+`sudo apt install ufw`
 
 Using _ufw_ is quite straightforward. You tell it which ports you want to allow, and it will drop any other requests. All you need to do is run `ufw allow $PORT`. Easy right?
 
+*For more information on ufw, take a look at the [official Ubuntu documentation](https://help.ubuntu.com/community/UFW).*
+
 Now let's do this to allow HTTP and SSH requests:
 
-`ufw allow 80`{{execute}}
-`ufw allow 22`{{execute}}
+`ufw allow 80`{{execute T2}}
+`ufw allow 22`{{execute T2}}
 
 Now we just need to activate it by running:
 
-`ufw enable`{{execute}}
+`ufw enable`{{execute T2}}
 
 When prompted with `Command may disrupt existing ssh connections. Proceed with operation (y|n)?`, type "y". They are simply warning us that if we don't allow access to port 22, then some ssh connections might drop, which makes perfect sense since we would be telling the firewall to drop incoming SSH requests, meaning any active connection would cease to work!
 
 You can see all the rules you've set up like this
 
-`ufw status`{{execute}}
+`ufw status`{{execute T2}}
 
 We see that the firewall allows access from anywhere to port 80 and port 22. Awesome, now make sure this works by opening up a new tab with _Select port to view on Host 1_ and try making a request on port 80. No response means it's working. Congrats! You've successfully activated a firewall, bringing us one step closer to securely deploying our application.
 

@@ -30,7 +30,7 @@
 			"text": "finish.md"
 		},
 		"assets": {
-			"client": [{ "file": "*", "target": "/home/projects/" }]
+			"client": [{ "file": "code/*", "target": "/home/projects/" }]
 		}
 	},
 	"environment": {

@@ -3,7 +3,7 @@
 We've mentioned Nginx and said that we were going to use it as a reverse proxy, but what is it really and what does that even mean?
 
 Well, first and foremost Nginx is a web server. Kind of like the API we made. It listens for requests and does stuff depending on what the request is. But Nginx does much more than a simple API.
-According to the documentation, "NGINX is open-source software for web serving, reverse proxying, caching, load balancing, media streaming, and more", but in this tutorial, we will only explore the reverse proxy part of it.
+According to the [documentation](https://www.nginx.com/resources/glossary/nginx/#:~:text=NGINX%20is%20open%20source%20software,for%20maximum%20performance%20and%20stability.), "NGINX is open-source software for web serving, reverse proxying, caching, load balancing, media streaming, and more", but in this tutorial, we will only explore the reverse proxy part of it.
 
 ### Okay, but what is a reverse proxy?
 
@@ -15,13 +15,17 @@ Well, when you make your order since you requested a Big Mac, the cashier transf
 
 Now we can think of a reverse proxy as that same cashier. When your server gets an API request (a burger order), the reverse proxy transfers your request to the API server running on your machine (the burger station). When the reverse proxy gets a request for a static website (chicken nuggets), it will fetch the files where the static website lies (the deep frying station). When either station (the file system or the API server) returns with the requested content, the reverse proxy will pass them along to the requesting entity.
 
-In Nginx, the service we use, whether it is a running API server or a static website we want to serve, is known as a _virtual host_ or _vhost_.
+In Nginx, the service we use, whether it is a running API server or a static website we want to serve, is known as a _virtual host_ or _vhost_. 
+
+Here is a diagram of what a reverse proxy looks like to give you a better idea:
+
+![Reverse Proxy Diagram](./assets/reverse_proxy_diagram.png)
 
 ### Okay, but why does it make our server more secure?
 
 Since our application server is only accessible through our reverse proxy and the internal network, malicious entities cannot access the servers directly to exploit vulnerabilities.
 
-Nginx also offers many other features such as denylisting IP addresses or limiting the number of connections from each client which help reduce the risk of distributed denial-of-service attacks (DDoS).
+Nginx also offers many other features such as denylisting IP addresses or limiting the number of connections from each client which help reduce the risk of distributed denial-of-service attacks (DDoS). 
 
 ### Let's use it!
 
@@ -145,6 +149,8 @@ npm run start
 
 Now, in our HTTP Client 1, add the _/api/_ route in the URL. You should see the response from the express API server. Congrats! You just successfully configured a reverse proxy, bringing us one step closer to deploying our server securely.
 
+To find out more about what you can do with Nginx, check out their [docs](https://nginx.org/en/docs/beginners_guide.html) for more examples!
+
 ## Note on integrating continuous deployment
 
 In the introduction of this tutorial, we briefly mentioned continuous deployment and how we can integrate it on our server. Well, as you can imagine, with Nginx this became a whole lot easier.
@@ -155,4 +161,4 @@ Anyway, let's start with another important step in deploying a secure server, wh
 
 ## Troubleshooting
 
-If you can't get access to the `/api/` route on a new tab, make sure the server is running with `cd /home/projects/express-api && npm run start`. You can check that this is working by running  `curl http://localhost:8000/api/` from another terminal tab.
+If you can't get access to the `/api/` route on a new katacoda terminal tab, make sure the server is running with `cd /home/projects/express-api && npm run start`. You can check that this is working by running  `curl http://localhost:8000/api/` from another terminal tab.

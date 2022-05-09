@@ -8,7 +8,7 @@ To use it, a client who wants to connect to a host must first authenticate thems
 
 ### Security measures we will implement
 
-On most systems, the default configuration for SSH is to allow password authentication. This means that when you try and connect to a host, you type in the password for that user you want to log in as, and you get in. Password authentication can be practical. It's easy to use from anywhere since no setup is required. However, this comes at a cost. Brute forcing methods can be applied to try and gain access and if a user doesn't choose a strong password then it is very likely an attacker will succeed. The better alternative is thus to use SSH key pairs.
+On most systems, the default configuration for SSH is to allow password authentication. This means that when you try and connect to a host, you type in the password for that user you want to log in as, and you get in. Password authentication can be practical. It's easy to use from anywhere since no setup is required. However, this comes at a cost. Brute forcing methods can be applied to try and gain access and if a user doesn't choose a **strong password** then it is very likely an attacker will succeed. Of course The better alternative is thus to use SSH key pairs.
 
 SSH key pairs are a set of asymmetric keys used to authenticate a user. A user generates a pair of keys on their personal computer, then the public key that was generated is added to a list of authorized keys on the host. This will allow a user to authenticate themselves without having to type in a password and will be more secure than using passwords because they are much harder to break.
 
@@ -32,6 +32,8 @@ You can make these changes directly using these commands:
 `sed --in-place 's/^#PermitRootLogin.*/PermitRootLogin no/g' /etc/ssh/sshd_config`{{execute T1}}
 `sed --in-place 's/^PasswordAuthentication.*/PermitRootLogin no/g' /etc/ssh/sshd_config`{{execute T1}}
 
+It is important to note here that on a katacoda machine, by default you are a root user. You can verify this by running `whoami`{{execute T1}}, which should tell you that you are the root use.
+
 ## Creating a non-root user
 
 Now, we need to create a user, without root privileges, which we will use for our login. To do this, run
@@ -51,6 +53,8 @@ The first thing you need to do when you want to log in with an SSH key is to cre
 Now switch users with `su torvald`{{execute T2}} and change directory to your new user's home directory: `cd /home/torvald`{{execute T2}}.
 
 To create an SSH key pair, simply run the command `ssh-keygen`{{execute T2}}. Press enter on the prompt to accept the default file in which to save the key and give a passphrase that you'll need to enter every time you want to use it (leaving it blank means you won't be asked for a password).
+
+*If you want to go even further into understanding how SSH key authentication works, you can check out this [article](https://goteleport.com/blog/comparing-ssh-keys/). They go into detail on how asymmetric key authentication works and which encryption algorithms you can use with `ssh-keygen`*
 
 Now if you look into the _.ssh_ directory `ls /home/torvald/.ssh`{{execute T2}}, you see you have a _id_rsa_ and _id_rsa.pub_ file. The first is your private key, NEVER share this with anyone, because it's secret. The second is your public key. This key is used by SSH to verify who you are.
 

@@ -58,7 +58,7 @@ Now, open a new terminal tab, make sure you're in the same directory as before, 
 
 If you see the "hello world" greeting, then congrats, our API is running and working correctly!
 
-To stop the server, just press <kbd>Ctrl</kbd>+<kbd>C</kbd> `^C`{{execute ctrl-seq T1}} and you will be back on our familiar terminal.
+To stop the server, just press <kbd>Ctrl</kbd>+<kbd>C</kbd> and you will be back on our familiar terminal. We won't be needing a running server for now so zou can do that now to get a fresh terminal tab `^C`{{execute ctrl-seq T1}}.
 
 ## Static website
 
